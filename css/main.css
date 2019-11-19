@@ -1,0 +1,32 @@
+body {
+  width: 960px;
+  margin: 0 auto;
+  /* background: #7395ae; */
+  background: #ffffff;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  margin: 50px;
+  color: #f78888;
+}
+
+h3{
+  font-size: 2em;
+  margin-bottom: 50px;
+  color: #f78888;
+}
+
+#main-banner {
+  text-align: center;
+  display: inline-block;
+}
+
+#pic1, #pic2, #pic3 {
+  width: 300px;
+  height: 300px;
+}
