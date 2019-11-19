@@ -1,4 +1,5 @@
 # bus-mall
+**Collaborating with: Joshua Deforrest**
 Instructions
 As a user, I would like to display three unique products by chance so that the viewers can pick a favorite.
 
