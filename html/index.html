@@ -10,12 +10,21 @@
     <h1>Bus Mall</h1>
     <h3>Please Click on Your Favorite Item</h3>
     <div id="three-container">
-      <img id="pic1" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
-      <img id="pic2" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
-      <img id="pic3" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
+      <div>
+        <img id="pic1" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
+        <h4 class = "picname" id = "pic1-name"></h4>
+      </div> 
+      <div> 
+        <img id="pic2" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
+        <h4 class = "picname" id = "pic2-name"></h4>
+      </div> 
+      <div> 
+        <img id="pic3" src="https://placehold.it/300x300/ddd" alt="big-pic" onClick="clickedItem"/>
+        <h4 class = "picname" id = "pic3-name"></h4>
+      </div>
     </div>
-    <script src="../js/app.js"></script>
+    <canvas id="myChart" width="500" height="500"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="../js/newapp.js"></script>
   </body>
-  <footer>
-  </footer>
 </html>
