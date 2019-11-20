@@ -72,11 +72,11 @@ new Pictures('dog-duck', '../img/assets/dog-duck.jpg');
 new Pictures('dragon', '../img/assets/dragon.jpg');
 new Pictures('pen', '../img/assets/pen.jpg');
 new Pictures('pet-sweep', '../img/assets/pet-sweep.jpg');
-new Pictures('scissors.jpg', '../img/assets/scissors.jpg');
+new Pictures('scissors', '../img/assets/scissors.jpg');
 new Pictures('shark', '../img/assets/shark.jpg');
 new Pictures('sweep', '../img/assets/sweep.png');
 new Pictures('tauntaun', '../img/assets/tauntaun.jpg');
-new Pictures('unicorn.jpg', '../img/assets/unicorn.jpg');
+new Pictures('unicorn', '../img/assets/unicorn.jpg');
 new Pictures('usb', '../img/assets/usb.gif');
 new Pictures('water-can', '../img/assets/water-can.jpg');
 new Pictures('wine-glass', '../img/assets/wine-glass.jpg');
@@ -127,6 +127,21 @@ function clickedItem(event) {
     imageSectionElem.removeEventListener('click', clickedItem);
     makeChart();
   }
+
+  // ************JSON****************
+
+  var storingData = function() {
+    var getVotes;
+    if (count === 25) {
+      JSON.stringify(Pictures.allPictures);
+      localStorage.setItem('Pictures.allPictures', JSON.stringify(Pictures.allPictures));
+      getVotes = JSON.parse(localStorage.getItem(Pictures.allPictures));
+    }
+    return getVotes;
+  }
+
+  storingData();
+
 }
 // console.log('this.timeShown', this.timeShown);
 
@@ -155,37 +170,38 @@ function makeChart(){
     timesShown.push(views);
   }
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-  // The type of chart we want to create
-    type: 'bar',
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+// The type of chart we want to create
+  type: 'bar',
 
-    // The data for our dataset
-    data: {
-      labels: namesArray,
-      datasets: [{
-        label: 'likes',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: likesArray
-      },
-      {
-        label: 'timesShown',
-        backgroundColor: 'rgb(0, 0, 255)',
-        borderColor: 'rgb(0, 0, 255)',
-        data: timesShown
-      }]
+  // The data for our dataset
+  data: {
+    labels: namesArray,
+    datasets: [{
+      label: 'likes',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: likesArray
     },
+    {
+      label: 'timesShown',
+      backgroundColor: 'rgb(0, 0, 255)',
+      borderColor: 'rgb(0, 0, 255)',
+      data: timesShown
+    }]
+  },
 
-    // Configuration options go here
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
+  // Configuration options go here
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
     }
-  });
+  }
+});
 }
+
