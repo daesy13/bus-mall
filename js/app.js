@@ -17,18 +17,18 @@ function randomNumber (num) {
 var Pictures = function(name, urlSource) {
   this.name = name;
   this.url = urlSource;
-  // this.clicks = clicks;
+  this.clicks = 0;
   Pictures.allPictures.push(this);
-  // this.timeShown = timeShown;
+  this.timeShown = 0;
 }
 
 Pictures.allPictures = []; //save all img into a list
-var totalClicks = 0; //saves total num of clicks
 
-function chooseThree (numLenght) {
+
+function chooseThree (numLength) {
   while(threePics.length < 3){
-    var randomItem = Pictures.allPictures[randomNumber(numLenght)]
-    if (threePics.includes(randomItem) == false) {
+    var randomItem = Pictures.allPictures[randomNumber(numLength)]
+    if (threePics.includes(randomItem) === false) {
       threePics.push(randomItem);
     }
   }
@@ -44,7 +44,6 @@ var renderingPictures = function(){
   pic2.alt = threePics[1].name;
   pic3.alt = threePics[2].name;
 }
-
 
 new Pictures('bag', '../img/assets/bag.jpg');
 new Pictures('banana', '../img/assets/banana.jpg');
@@ -68,9 +67,63 @@ new Pictures('water-can', '../img/assets/water-can.jpg');
 new Pictures('wine-glass', '../img/assets/wine-glass.jpg');
 
 
-
 chooseThree(Pictures.allPictures.length);
 // console.log('Pictures(): ', Pictures());
 console.log('Pictures.allPictures: ', Pictures.allPictures);
 console.log('chooseThree(Pictures.allPictures.length): ', chooseThree(Pictures.allPictures.length));
 renderingPictures();
+
+// ********Event Handler***********
+
+var clickedItem = function eventHandler(event) {
+  console.log('this: ', this);
+  console.log('threePics[0]', threePics[0]);
+  console.log('event.target: ', event.target.id);
+
+  if(event.target.id === "pic1"){
+    threePics[0].clicks++;
+    chooseThree(Pictures.allPictures.length);
+    console.log('chooseThree(Pictures.allPictures.length): ', chooseThree(Pictures.allPictures.length))
+    // event.preventDefault();
+  }
+  else if(event.target.id === "pic2"){
+    threePics[1].clicks++;
+    // event.preventDefault();
+  }
+  else if(event.target.id === "pic3"){
+    threePics[2].clicks++ ;
+  }
+  
+  // if (threePics[].clicks <= 3) {
+  //   threePics[].clicks++ 
+  // }
+}
+
+var timesShown = function shownItems(){
+  for (var i = 0; i < threePics.length; i++){
+    threePics[i].timeShown++;
+  }
+}
+
+
+console.log('this.timeShown', this.timeShown);
+
+var clickedPic1 = image1.addEventListener("click", clickedItem);
+var clickedPic2 = image2.addEventListener("click", clickedItem);
+var clickedPic3 = image3.addEventListener("click", clickedItem);
+
+// image1.addEventListener("click", clickedItem);
+// image2.addEventListener("click", clickedItem);
+// image3.addEventListener("click", clickedItem);
+
+var newRandom = function createNewRandom(){
+  if (clickedPic1 || clickedPic2 || clickedPic3){
+
+   }
+    chooseThree(Pictures.allPictures.length)
+}
+
+// newRandom();
+timesShown();
+// chooseThree(Pictures.allPictures.length);
+newRandom();
