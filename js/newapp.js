@@ -60,26 +60,26 @@ var renderingPictures = function () {
   // image3.alt = sixPics[2].name;
 };
 
-new Pictures('bag', '../img/assets/bag.jpg');
-new Pictures('banana', '../img/assets/banana.jpg');
-new Pictures('bathroom', '../img/assets/bathroom.jpg');
-new Pictures('boots', '../img/assets/boots.jpg');
-new Pictures('breakfast', '../img/assets/breakfast.jpg');
-new Pictures('bugglegum', '../img/assets/bubblegum.jpg');
-new Pictures('chair', '../img/assets/chair.jpg');
-new Pictures('cthulhu', '../img/assets/cthulhu.jpg');
-new Pictures('dog-duck', '../img/assets/dog-duck.jpg');
-new Pictures('dragon', '../img/assets/dragon.jpg');
-new Pictures('pen', '../img/assets/pen.jpg');
-new Pictures('pet-sweep', '../img/assets/pet-sweep.jpg');
-new Pictures('scissors', '../img/assets/scissors.jpg');
-new Pictures('shark', '../img/assets/shark.jpg');
-new Pictures('sweep', '../img/assets/sweep.png');
-new Pictures('tauntaun', '../img/assets/tauntaun.jpg');
-new Pictures('unicorn', '../img/assets/unicorn.jpg');
-new Pictures('usb', '../img/assets/usb.gif');
-new Pictures('water-can', '../img/assets/water-can.jpg');
-new Pictures('wine-glass', '../img/assets/wine-glass.jpg');
+new Pictures('bag', './img/assets/bag.jpg');
+new Pictures('banana', './img/assets/banana.jpg');
+new Pictures('bathroom', './img/assets/bathroom.jpg');
+new Pictures('boots', './img/assets/boots.jpg');
+new Pictures('breakfast', './img/assets/breakfast.jpg');
+new Pictures('bugglegum', './img/assets/bubblegum.jpg');
+new Pictures('chair', './img/assets/chair.jpg');
+new Pictures('cthulhu', './img/assets/cthulhu.jpg');
+new Pictures('dog-duck', './img/assets/dog-duck.jpg');
+new Pictures('dragon', './img/assets/dragon.jpg');
+new Pictures('pen', './img/assets/pen.jpg');
+new Pictures('pet-sweep', './img/assets/pet-sweep.jpg');
+new Pictures('scissors', './img/assets/scissors.jpg');
+new Pictures('shark', './img/assets/shark.jpg');
+new Pictures('sweep', './img/assets/sweep.png');
+new Pictures('tauntaun', './img/assets/tauntaun.jpg');
+new Pictures('unicorn', './img/assets/unicorn.jpg');
+new Pictures('usb', './img/assets/usb.gif');
+new Pictures('water-can', './img/assets/water-can.jpg');
+new Pictures('wine-glass', './img/assets/wine-glass.jpg');
 // console.log(Pictures.allPictures);
 function changePictures() {
   for (var i = 0; i < 3; i++) {
@@ -133,7 +133,7 @@ function clickedItem(event) {
   var storingData = function() {
     var getVotes;
     if (count === 25) {
-      JSON.stringify(Pictures.allPictures);
+      // JSON.stringify(Pictures.allPictures);
       localStorage.setItem('Pictures.allPictures', JSON.stringify(Pictures.allPictures));
       getVotes = JSON.parse(localStorage.getItem(Pictures.allPictures));
     }
@@ -204,4 +204,3 @@ var myChart = new Chart(ctx, {
   }
 });
 }
-
